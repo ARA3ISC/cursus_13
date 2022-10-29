@@ -6,11 +6,9 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:20:36 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:33:44 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/10/27 10:31:07 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isalnum(int c)
 {
@@ -18,3 +16,9 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	printf("%d", ft_isalnum('-'));
+// 	return (0);
+// } done

@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 18:12:55 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 14:48:16 by maneddam         ###   ########.fr       */
+/*   Created: 2022/10/25 17:03:13 by maneddam          #+#    #+#             */
+/*   Updated: 2022/10/29 14:40:27 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	i;
-	char	*ptr;
+	int	len;
 
-	i = 0;
-	ptr = s;
-	while (i < n)
+	len = 0;
+	if (lst == NULL)
+		return (0);
+	while (lst != NULL)
 	{
-		ptr[i] = '\0';
-		i++;
+		len++;
+		lst = lst->next;
 	}
+	return (len);
 }
-// #include <stdio.h>
-// #include <string.h>
-// int	main(void)
-// {
-// 	int	str[];
-
-// 	str[] = {1, 2, 3, 4, 5};
-// 	bzero(str, 5);
-// 	for (int k = 0; k < 5; k++)
-// 		printf("%d ", str[k]);
-// }

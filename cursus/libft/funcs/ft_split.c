@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 18:07:05 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 19:04:37 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/10/27 14:05:24 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,7 @@ char	**fill_ptr(char **ptr, char const *s, size_t words_num, char c)
 			return (NULL);
 		k = 0;
 		while (s[j] && s[j] != c)
-		{
-			ptr[i][k] = s[j];
-			j++;
-			k++;
-		}
+			ptr[i][k++] = s[j++];
 		ptr[i][k] = '\0';
 		i++;
 	}
@@ -101,40 +97,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (fill_ptr(ptr, s, words_num, c));
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	char	*str;
-// 	char	c;
-// 	char	**ptr;
-
-// 	str = "med arabi anedd";
-// 	c = ' ';
-// 	ptr = ft_split(str, c);
-// 	for (size_t i = 0; i < 4; i++)
-// 	{
-// 		printf("%s\n", ptr[i]);
-// 	}
-// 	return (0);
-// }
-
-// while (j <= ft_strlen(s) )
-// {
-//     while (s[j] && s[j] == c)
-//         j++;
-//     k = 0;
-//     while(s[j + k] && s[j + k] != c)
-//     {
-//         k++;
-//     }
-//     if (k != 0)
-//     {
-//         ptr[i] = ft_substr(s, j, k);
-//         // if (ptr[i] == NULL)
-//         //     return(ft_free(ptr));        create ur own function
-//         j = j + k;
-//         i++;
-//         continue ;
-//     }
-//     j++;
-// }

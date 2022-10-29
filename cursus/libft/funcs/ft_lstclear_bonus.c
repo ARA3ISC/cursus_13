@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 18:12:55 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 14:48:16 by maneddam         ###   ########.fr       */
+/*   Created: 2022/10/25 22:36:50 by maneddam          #+#    #+#             */
+/*   Updated: 2022/10/26 11:02:50 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	i;
-	char	*ptr;
+	t_list	*temp;
 
-	i = 0;
-	ptr = s;
-	while (i < n)
+	if (lst && del)
 	{
-		ptr[i] = '\0';
-		i++;
+		while (*lst != NULL)
+		{
+			temp = (*lst)->next;
+			ft_lstdelone(*lst, del);
+			*lst = temp;
+		}
 	}
 }
-// #include <stdio.h>
-// #include <string.h>
 // int	main(void)
 // {
-// 	int	str[];
-
-// 	str[] = {1, 2, 3, 4, 5};
-// 	bzero(str, 5);
-// 	for (int k = 0; k < 5; k++)
-// 		printf("%d ", str[k]);
+// 	//t_list	**ptr;
+// 	//ptr =
+// 	ft_lstclear(0, 0);
+// 	return (0);
 // }

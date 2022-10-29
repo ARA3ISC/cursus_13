@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:01:31 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:43:28 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/10/27 09:58:05 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,14 @@ int	ft_atoi(const char *str)
 		result *= -1;
 	return (result);
 }
-/*
-int	main(void)
-{
-	char a[] = "dkd 890";
-	printf("%d\n", atoi(a));
-	printf("%d", ft_atoi(a));
+// #include <stdio.h>
+// #include <string.h>
+// int	main(void)
+// {
+// 	char	*a;
 
-	return (0);
-}*/
+// 	a = NULL;
+// 	printf("mine : %d\n", ft_atoi(a));
+// 	//printf("theirs :%d", atoi(a));
+// 	return (0);
+// } 			both segments

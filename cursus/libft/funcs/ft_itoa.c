@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 12:28:40 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:35:11 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/10/27 10:42:23 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,29 @@ int	numb_size(long nb)
 	return (count);
 }
 
+char	*check_num(long nbr, char *ptr, int len, int i)
+{
+	if (nbr == 0)
+	{
+		ptr[0] = '0';
+		ptr[1] = '\0';
+		return (ptr);
+	}
+	else if (nbr < 0)
+	{
+		ptr[0] = '-';
+		nbr *= -1;
+	}
+	while (nbr > 0)
+	{
+		ptr[i - 1] = nbr % 10 + 48;
+		nbr = nbr / 10;
+		i--;
+	}
+	ptr[len] = '\0';
+	return (ptr);
+}
+
 char	*ft_itoa(int n)
 {
 	long	nbr;
@@ -46,29 +69,11 @@ char	*ft_itoa(int n)
 	if (!ptr)
 		return (NULL);
 	i = len;
-	if (n == 0)
-	{
-		ptr[0] = '0';
-		ptr[1] = '\0';
-		return (ptr);
-	}
-	else if (nbr < 0)
-	{
-		ptr[0] = '-';
-		nbr *= -1;
-	}
-	while (nbr > 0)
-	{
-		ptr[len - 1] = nbr % 10 + 48;
-		nbr = nbr / 10;
-		len--;
-	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (check_num(nbr, ptr, len, i));
 }
 // #include <stdio.h>
-// int main()
+// int	main(void)
 // {
-//     printf("%s", ft_itoa(456));
-//     return (0);
-//}
+// 	printf("%s", ft_itoa(456));
+// 	return (0);
+// }

@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 18:12:55 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 14:48:16 by maneddam         ###   ########.fr       */
+/*   Created: 2022/10/24 18:53:09 by maneddam          #+#    #+#             */
+/*   Updated: 2022/10/24 21:11:40 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	char	*ptr;
+	t_list	*ptr;
 
-	i = 0;
-	ptr = s;
-	while (i < n)
-	{
-		ptr[i] = '\0';
-		i++;
-	}
+	ptr = malloc(sizeof(t_list));
+	if (!ptr)
+		return (NULL);
+	ptr->content = content;
+	ptr->next = NULL;
+	return (ptr);
 }
-// #include <stdio.h>
-// #include <string.h>
-// int	main(void)
-// {
-// 	int	str[];
-
-// 	str[] = {1, 2, 3, 4, 5};
-// 	bzero(str, 5);
-// 	for (int k = 0; k < 5; k++)
-// 		printf("%d ", str[k]);
-// }

@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 18:12:55 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 14:48:16 by maneddam         ###   ########.fr       */
+/*   Created: 2022/10/25 21:41:56 by maneddam          #+#    #+#             */
+/*   Updated: 2022/10/26 18:02:40 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t	i;
-	char	*ptr;
-
-	i = 0;
-	ptr = s;
-	while (i < n)
+	if (lst && del)
 	{
-		ptr[i] = '\0';
-		i++;
+		del(lst->content);
+		free(lst);
 	}
 }
-// #include <stdio.h>
-// #include <string.h>
-// int	main(void)
-// {
-// 	int	str[];
-
-// 	str[] = {1, 2, 3, 4, 5};
-// 	bzero(str, 5);
-// 	for (int k = 0; k < 5; k++)
-// 		printf("%d ", str[k]);
-// }

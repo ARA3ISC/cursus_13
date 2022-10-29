@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 16:22:38 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:29:04 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/10/29 14:34:21 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,12 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*psrc;
 	char	*pdst;
 
+
 	psrc = (char *)src;
 	pdst = (char *)dst;
+	if (dst == src)
+		return (dst);
+
 	if (pdst == NULL && psrc == NULL)
 		return (NULL);
 	i = 0;
