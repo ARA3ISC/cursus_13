@@ -6,13 +6,13 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 18:07:05 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 14:05:24 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:19:52 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(const char *str, char c)
+static size_t	count_words(const char *str, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -34,7 +34,7 @@ size_t	count_words(const char *str, char c)
 	return (count);
 }
 
-size_t	word_len(const char *s, char c)
+static size_t	word_len(const char *s, char c)
 {
 	size_t	i;
 	size_t	len;
@@ -53,7 +53,17 @@ size_t	word_len(const char *s, char c)
 	return (len);
 }
 
-char	**fill_ptr(char **ptr, char const *s, size_t words_num, char c)
+static void	ft_free(char **tab, size_t i)
+{
+	while (i > 0)
+	{
+		free(tab[i]);
+		i--;
+	}
+	free(tab);
+}
+
+static char	**fill_ptr(char **ptr, char const *s, size_t words_num, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -68,7 +78,10 @@ char	**fill_ptr(char **ptr, char const *s, size_t words_num, char c)
 			j++;
 		ptr[i] = malloc(word_len(s + j, c) + 1);
 		if (!ptr[i])
+		{
+			ft_free(ptr, i);
 			return (NULL);
+		}
 		k = 0;
 		while (s[j] && s[j] != c)
 			ptr[i][k++] = s[j++];

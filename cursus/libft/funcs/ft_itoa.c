@@ -6,13 +6,13 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 12:28:40 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 10:42:23 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:41:01 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	numb_size(long nb)
+static int	numb_size(long nb)
 {
 	int	count;
 
@@ -33,7 +33,7 @@ int	numb_size(long nb)
 	return (count);
 }
 
-char	*check_num(long nbr, char *ptr, int len, int i)
+static char	*check_num(long nbr, char *ptr, int len, int i)
 {
 	if (nbr == 0)
 	{
@@ -71,9 +71,3 @@ char	*ft_itoa(int n)
 	i = len;
 	return (check_num(nbr, ptr, len, i));
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	printf("%s", ft_itoa(456));
-// 	return (0);
-// }

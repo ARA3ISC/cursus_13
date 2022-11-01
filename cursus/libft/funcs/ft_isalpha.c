@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:09:23 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 10:33:43 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:40:51 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,3 @@ int	ft_isalpha(int nbr)
 {
 	return ((nbr >= 'a' && nbr <= 'z') || (nbr >= 'A' && nbr <= 'Z'));
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	printf("%d", ft_isalpha('z'));
-// 	//return (0);
-// }	done

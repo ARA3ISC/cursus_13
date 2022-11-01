@@ -6,24 +6,20 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:01:55 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:38:11 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:45:23 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// char f(unsigned int index, char c)
-// {
-//     c = 'X';
-//     (void)index;
-//     return (c);
-// }
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	int		i;
 	size_t	slen;
 	char	*ptr;
 
+	if (!s || !f)
+		return (NULL);
 	slen = ft_strlen(s);
 	ptr = malloc(sizeof(char) * slen + 1);
 	if (!ptr)
@@ -37,9 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	ptr[i] = '\0';
 	return (ptr);
 }
-// #include <stdio.h>
-// int main()
-// {
-
-//     printf("%s", ft_strmapi("arabikaoutar<3", f));
-// }

@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:45:05 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/26 11:48:39 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:38:34 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (0);
 }
-/*#include <stdio.h>
-#include <string.h>
-int	main(void)
-{
-	//char a[] = "testa";
-	//char b[] = "test";
-	//printf("%d\n", ft_strncmp("test", "test", 4));
-	printf("%d", strncmp("testa", "test", 5));
-
-	return (0);
-}*/

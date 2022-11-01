@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 16:36:10 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/26 11:18:14 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:41:25 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-/*
-int	main(void)
-{
-	char str[] = "arabis\0co@gmail.com";
-	char c = '@';
-	printf("%s\n", strchr(str, c));
-	printf("%s", memchr(str, c, 18));
-
-	return (0);
-}*/

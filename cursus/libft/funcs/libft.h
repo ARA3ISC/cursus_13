@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 10:54:22 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/26 09:31:16 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/10/31 01:47:21 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 void				*ft_calloc(size_t nmemb, size_t size);
 size_t				ft_strlen(const char *s);

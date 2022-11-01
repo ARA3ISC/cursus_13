@@ -6,17 +6,24 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:01:31 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 09:58:05 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:18:46 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	check_of(int sign)
+{
+	if (sign == -1)
+		return (0);
+	return (-1);
+}
+
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	result;
-	int	sign;
+	int		i;
+	long	result;
+	int		sign;
 
 	sign = 1;
 	result = 0;
@@ -33,21 +40,10 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= 48 && str[i] <= 57)
 	{
+		if (result * 10 + str[i] - 48 < result)
+			return (check_of(sign));
 		result = result * 10 + str[i] - 48;
 		i++;
 	}
-	if (sign != 1)
-		result *= -1;
-	return (result);
+	return (result * sign);
 }
-// #include <stdio.h>
-// #include <string.h>
-// int	main(void)
-// {
-// 	char	*a;
-
-// 	a = NULL;
-// 	printf("mine : %d\n", ft_atoi(a));
-// 	//printf("theirs :%d", atoi(a));
-// 	return (0);
-// } 			both segments

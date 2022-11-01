@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 08:14:10 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:36:44 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:37:37 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,3 @@ char	*ft_strdup(const char *s1)
 	ptr[i] = '\0';
 	return (ptr);
 }
-/*
-int	main(void)
-{
-	char str[] = "ojdb bjdbjkbd bkhb kdhb";
-	printf("%s\n", strdup(str));
-	return (0);
-}*/

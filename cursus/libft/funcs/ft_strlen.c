@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:27:56 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/26 18:37:22 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:38:05 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-// #include <stdio.h>
-// #include <string.h>
-// int	main(void)
-// {
-// 	char	*s;
-
-// 	s = NULL;
-// 	printf("%zu", ft_strlen(s));
-// 	return (0);
-// }

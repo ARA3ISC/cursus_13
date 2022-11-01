@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 11:39:39 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:38:57 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:39:49 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*ptr;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	if (start >= ft_strlen((char *)s))
 		return (ft_strdup(""));
-	if (len > ft_strlen((char *)s))
+	if (len > ft_strlen((char *)s) - start)
 		len = ft_strlen((char *)s) - start;
 	ptr = malloc(sizeof(char) * len + 1);
 	if (!ptr)
@@ -34,14 +36,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ptr[i] = '\0';
 	return (ptr);
 }
-
-// #include <stdio.h>
-// #include <string.h>
-// int main()
-// {
-//     char *str = "01234";
-//         size_t size = 10;
-//         char *ret = ft_substr(str, 2, 30);
-//         printf("%s", ret);
-//     return (0);
-// }

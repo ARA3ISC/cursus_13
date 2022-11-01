@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:50:37 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:39:22 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:39:58 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,3 @@ int	ft_toupper(int c)
 	}
 	return (c);
 }
-
-/*#include <stdio.h>
-int	main(void)
-{
-	printf("the uppercase of b is %d\n", ft_toupper('b'));
-	return (0);
-}*/

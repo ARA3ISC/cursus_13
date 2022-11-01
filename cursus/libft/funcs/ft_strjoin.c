@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:30:34 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/26 18:34:04 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:37:46 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new_str[i] = '\0';
 	return (new_str);
 }
-// #include <stdio.h>
-// int	main(int argc, char const *argv[])
-// {
-// 	char	*s1;
-// 	char	*s2;
-
-// 	printf("%s", ft_strjoin(NULL, NULL));
-// 	return (0);
-// }

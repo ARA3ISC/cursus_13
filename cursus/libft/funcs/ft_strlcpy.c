@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 22:08:12 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:37:57 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:37:58 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dst[i] = '\0';
 	return (j);
 }
-/*
-int	main(void)
-{
-	char src[] = "coucou";
-	char dest[10] = "A";
-
-	printf("%zu\n", ft_strlcpy(dest, src, 0));
-	printf("%s", dest);
-	//printf("des : %s    %zu\n",dest, strlcpy(dest, src, 0));
-	return (0);
-}*/

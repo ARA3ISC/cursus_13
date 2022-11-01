@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 18:12:55 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 14:48:16 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:40:36 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-// #include <stdio.h>
-// #include <string.h>
-// int	main(void)
-// {
-// 	int	str[];
-
-// 	str[] = {1, 2, 3, 4, 5};
-// 	bzero(str, 5);
-// 	for (int k = 0; k < 5; k++)
-// 		printf("%d ", str[k]);
-// }

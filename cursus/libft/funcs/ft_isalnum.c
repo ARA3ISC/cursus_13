@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:20:36 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/27 10:31:07 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:40:44 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,3 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
-// #include <stdio.h>
-// int	main(void)
-// {
-// 	printf("%d", ft_isalnum('-'));
-// 	return (0);
-// } done

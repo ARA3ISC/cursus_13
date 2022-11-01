@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 05:07:14 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:36:17 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:36:59 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,3 @@ void	*ft_memset(void *b, int c, size_t len)
 	}
 	return (b);
 }
-/*
-int	main(void)
-{
-	int str[] = {1, 2, 3, 4, 5};
-	int c = 9;
-
-	memset(str + 2, c, 3 * 4);
-	for (size_t k = 0; k < 5; k++)
-	{
-		printf("%d  ", str[k]);
-	}
-	return (0);
-}*/

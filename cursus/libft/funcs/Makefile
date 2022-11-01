@@ -12,10 +12,10 @@ OBJ = $(SRC:.c=.o)
 OBJB = $(BSRC:.c=.o)
 
 
+all: $(NAME)
+
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
-
-all: $(NAME)
 
 bonus : $(OBJB)
 	ar rc $(NAME) $(OBJB)

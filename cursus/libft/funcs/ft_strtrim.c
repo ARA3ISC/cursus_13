@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 16:52:04 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:38:46 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:39:42 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		i;
 	size_t	len;
 
+	if (!s1 || !set)
+		return (NULL);
 	i = 0;
 	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
@@ -25,11 +27,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		len--;
 	return (ft_substr(s1, i, len - i + 1));
 }
-
-// #include <stdio.h>
-// #include <string.h>
-// int main()
-// {
-// 	printf("%s", ft_strtrim("lorem ipsum dolor sit amet", "tel"));
-// 	return (0);
-// }

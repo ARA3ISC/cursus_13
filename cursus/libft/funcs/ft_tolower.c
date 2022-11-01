@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:08:45 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/23 16:39:10 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/01 15:39:54 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,3 @@ int	ft_tolower(int c)
 		c += 32;
 	return (c);
 }
-/*
-#include <stdio.h>
-int	main(void)
-{
-	printf("the lowercase of + is %c\n", ft_tolower('+'));
-	return (0);
-}*/
