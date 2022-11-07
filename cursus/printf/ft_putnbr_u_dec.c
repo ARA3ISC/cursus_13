@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 23:26:00 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/04 05:43:34 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/05 00:47:59 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	ft_putnbr_u_dec(unsigned int n, char *base)
 {
-	int i;
-	unsigned long len;
-
+	int				i;
+	unsigned long	len;
 
 	len = ft_strlen(base);
 	i = 0;
@@ -28,14 +27,6 @@ int	ft_putnbr_u_dec(unsigned int n, char *base)
 	else
 	{
 		i += ft_putchar((base[n]));
-		// "0123456789"[2]
 	}
-	return(i);
+	return (i);
 }
-// int main(int argc, char const *argv[])
-// {
-// 	adress(main,"0123456789abcdef");
-// 	printf("\n%p\n",main);
-// 	return 0;
-// }
-

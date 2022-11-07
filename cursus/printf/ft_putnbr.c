@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 00:53:49 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/04 05:43:36 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/11/05 00:46:41 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putnbr(long n, char *base)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n < 0)
@@ -23,7 +23,7 @@ int	ft_putnbr(long n, char *base)
 		write(1, "-", 1);
 		n = n * -1;
 	}
-	if (n > (long)ft_strlen(base))
+	if (n >= (long)ft_strlen(base))
 	{
 		i += ft_putnbr(n / ft_strlen(base), base);
 		i += ft_putnbr(n % ft_strlen(base), base);
@@ -32,5 +32,5 @@ int	ft_putnbr(long n, char *base)
 	{
 		i += ft_putchar((base[n]));
 	}
-	return(i);
+	return (i);
 }
