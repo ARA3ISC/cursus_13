@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 16:52:04 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/01 15:39:42 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/07 22:22:55 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/10 21:18:13 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef _GET_NEXT_LINE_H
+# define _GET_NEXT_LINE_H
 
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	int		i;
-	size_t	len;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-	if (!s1 || !set)
-		return (NULL);
-	i = 0;
-	while (s1[i] && ft_strchr(set, s1[i]))
-		i++;
-	len = ft_strlen(s1);
-	while (len > 0 && ft_strchr(set, s1[len]))
-		len--;
-	return (ft_substr(s1, i, len - i + 1));
-}
-// "arabi badr"
-// "ard"
+# include <fcntl.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+char	*get_next_line(int fd);
+char	*ft_strjoin(char *line, char *buf);
+char	*free_zmmr(char **s1, char **s2);
+int		check_nl(char *line);
+char	*ft_strdup(char *s1);
+int		ft_strlen(char *s);
+
+#endif

@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../get_next_line"
+		},
+		{
+			"path": "../libft"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"get_next_line.h": "c"
+		}
+	}
+}

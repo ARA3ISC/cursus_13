@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 16:52:04 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/01 15:39:42 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/07 22:29:26 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/09 00:16:21 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
+#include <stdio.h>
 
-char	*ft_strtrim(char const *s1, char const *set)
+static size_t	ft_strlen(const char *s)
 {
-	int		i;
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
+
+static char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
 	size_t	len;
 
-	if (!s1 || !set)
-		return (NULL);
 	i = 0;
-	while (s1[i] && ft_strchr(set, s1[i]))
+	len = ft_strlen(s);
+	while (i <= len)
+	{
+		if (s[i] == (char)c)
+		{
+			return ((char *)s + i);
+		}
 		i++;
-	len = ft_strlen(s1);
-	while (len > 0 && ft_strchr(set, s1[len]))
-		len--;
-	return (ft_substr(s1, i, len - i + 1));
+	}
+	return (NULL);
 }
-// "arabi badr"
-// "ard"
+
+
