@@ -5,93 +5,109 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/07 22:22:22 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/10 21:41:44 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/11 15:14:21 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/15 19:47:42 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*rtn_save(char **line, int pos, char **buf)
+char	*read_join(int fd, char *data)
 {
-	char	*temp;
-	char	*str;
+	char	*buf;
+	int		rd;
 	int		i;
 
 	i = 0;
-	str = malloc(pos + 1);
-	if (!str)
-		return (free(*buf), (free_zmmr(line, &str)));
-	while (i < pos)
+	buf = malloc(BUFFER_SIZE + 1);
+	if (!buf)
+		return (NULL);
+	while (!ft_strchr(data, '\n'))
 	{
-		*(str + i) = *(*line + i);
-		i++;
+		rd = read(fd, buf, BUFFER_SIZE);
+		if (rd == -1)
+			return (free(data), free(buf), NULL);
+		if (rd == 0)
+			break ;
+		buf[rd] = '\0';
+		data = ft_strjoin(data, buf);
 	}
-	str[i] = '\0';
-	temp = ft_strdup(*line + pos);
-	free_zmmr(line, 0);
-	*line = temp;
-	return (free_zmmr(buf, 0), str);
+	free(buf);
+	return (data);
 }
 
-char	*no_read(char **line)
+char	*ft_split_data(char *data)
 {
-	int		pos;
-	char 	*temp;
+	char	*new_str;
+	int		i;
 
-	if (*line && !**line)
-		return (free_zmmr(line, 0));
-	pos = check_nl(*line);
-	if (pos)
-		return (rtn_save(line, pos, 0));
-	temp = ft_strdup(*line);
-	free_zmmr(line, 0);
-	return (temp);
+	i = 0;
+	while (data[i] && data[i] != '\n')
+		i++;
+	if (data[i] == '\n')
+		i++;
+	new_str = malloc(i + 1);
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (data[i] && data[i] != '\n')
+	{
+		new_str[i] = data[i];
+		i++;
+	}
+	if (data && data[i] == '\n')
+	{
+		new_str[i] = data[i];
+		i++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
+}
+
+char	*ft_get_chyata(char *data)
+{
+	char	*new_str;
+	int		len;
+	int		i;
+	int		j;
+
+	i = 0;
+	if (data)
+		len = ft_strlen(data);
+	while (data && data[i] && data[i] != '\n')
+		i++;
+	if (data && (data[i] == '\0' || data[i + 1] == '\0'))
+		return (free(data), NULL);
+	new_str = malloc(len - i + 1);
+	if (!new_str)
+		return (NULL);
+	i++;
+	j = 0;
+	while (data && data[i])
+		new_str[j++] = data[i++];
+	new_str[j] = '\0';
+	free(data);
+	return (new_str);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
-	char		*buf;
-	int			r;
-	int			pos;
+	static char	*data;
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (free_zmmr(&line, 0));
-	buf = malloc(BUFFER_SIZE + 1);
-	if (!buf)
-		return (free_zmmr(&line, 0));
-	while (1)
-	{
-		r = read(fd, buf, BUFFER_SIZE);
-		if (r == -1)
-			return (free_zmmr(&buf, &line));
-		if (r == 0)
-			break;
-		buf[r] = '\0';
-		pos = check_nl(line);
-		line = ft_strjoin(line, buf);
-		if (pos)
-			return (rtn_save(&line, pos, &buf));
-	}
-	free(buf);
-	printf("OUT\n");
-	return (no_read(&line));
+		return (NULL);
+	data = read_join(fd, data);
+	if (!data)
+		return (NULL);
+	line = ft_split_data(data);
+	data = ft_get_chyata(data);
+	return (line);
 }
+// int	main(void)
+// {
+// 	int	fd;
 
-int	main(void)
-{
-	int	fd;
-	int i = 1;
-
-	fd = open("arabi.txt", O_RDWR | O_CREAT);
-	while (i < 10)
-	{
-		printf("line%d:%s\n",i,  get_next_line(fd));
-		i++;
-	}
-	//system("leaks a.out");
-
-}
-
-
+// 	fd = open("test.txt", O_RDONLY);
+// 	printf("%s}", get_next_line(fd));
+// }

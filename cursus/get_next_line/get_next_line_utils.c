@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/10 16:36:30 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/10 21:39:33 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/11 15:40:17 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/14 21:41:51 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,76 +24,73 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
+char	*ft_strchr(char *s, char find)
+{
+	while (s && *s)
+	{
+		if (*s == find)
+			return (s);
+		s++;
+	}
+	return (NULL);
+}
+
+char	*free_zmmr(char **data, char **buff)
+{
+	if (data && *data)
+	{
+		free(*data);
+		*data = NULL;
+	}
+	if (buff && *buff)
+	{
+		free(*buff);
+		*buff = NULL;
+	}
+	return (NULL);
+}
+
 char	*ft_strdup(char *s1)
 {
 	int		len;
 	int		i;
 	char	*ptr;
 
-	if (!s1 || !*s1)
-		return (0);
 	len = ft_strlen(s1);
-	ptr = malloc(sizeof(char) * (len + 1));
+	ptr = malloc(len + 1);
 	if (!ptr)
 		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		ptr[i] = s1[i];
+		ptr[i] = (s1)[i];
 		i++;
 	}
 	ptr[i] = '\0';
-	//free(s1);
 	return (ptr);
 }
 
-int	check_nl(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (line && line[i])
-	{
-		if (line[i] == '\n')
-			return (i + 1);
-		i++;
-	}
-	return (0);
-}
-
-char	*free_zmmr(char **s1, char **s2)
-{
-	if (s1 && *s1)
-	{
-		free(*s1);
-		*s1 = 0;
-	}
-	if (s2 && *s2)
-	{
-		free(*s2);
-		*s2 = 0;
-	}
-	return (0);
-}
-
-char	*ft_strjoin(char *line, char *buf)
+char	*ft_strjoin(char *data, char *buff)
 {
 	char	*new_str;
 	int		i;
 	int		j;
 
-	i = -1;
+	i = 0;
 	j = 0;
-	if (buf == NULL)
-		return (NULL);
-	new_str = malloc(sizeof(char) * (ft_strlen(line) + ft_strlen(buf)) + 1);
+	if (!data)
+		return (ft_strdup(buff));
+	new_str = malloc((ft_strlen(data) + ft_strlen(buff)) + 1);
 	if (!new_str)
-		return (free_zmmr(&line, &buf));
-	while (++i < ft_strlen(line))
-		new_str[i] = line[i];
-	while (j < ft_strlen(buf))
-		new_str[i++] = buf[j++];
+		return (free(data), free(buff), NULL);
+	while (data[i])
+	{
+		new_str[i] = data[i];
+		i++;
+	}
+	while (buff[j])
+		new_str[i++] = buff[j++];
 	new_str[i] = '\0';
-	free(line);
+	free(data);
 	return (new_str);
 }
