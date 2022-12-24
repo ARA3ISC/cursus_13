@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 15:14:21 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/15 19:47:42 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/17 09:55:39 by maneddam          #+#    #+#             */
+/*   Updated: 2022/12/06 12:10:30 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ char	*read_join(int fd, char *data)
 {
 	char	*buf;
 	int		rd;
-	int		i;
 
-	i = 0;
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
 		return (NULL);
@@ -55,7 +53,7 @@ char	*ft_split_data(char *data)
 		new_str[i] = data[i];
 		i++;
 	}
-	if (data && data[i] == '\n')
+	if (data[i] == '\n')
 	{
 		new_str[i] = data[i];
 		i++;
@@ -72,18 +70,17 @@ char	*ft_get_chyata(char *data)
 	int		j;
 
 	i = 0;
-	if (data)
-		len = ft_strlen(data);
-	while (data && data[i] && data[i] != '\n')
+	len = ft_strlen(data);
+	while (data[i] && data[i] != '\n')
 		i++;
-	if (data && (data[i] == '\0' || data[i + 1] == '\0'))
+	if ((data[i] == '\0' || data[i + 1] == '\0'))
 		return (free(data), NULL);
 	new_str = malloc(len - i + 1);
 	if (!new_str)
 		return (NULL);
 	i++;
 	j = 0;
-	while (data && data[i])
+	while (data[i])
 		new_str[j++] = data[i++];
 	new_str[j] = '\0';
 	free(data);
@@ -104,10 +101,12 @@ char	*get_next_line(int fd)
 	data = ft_get_chyata(data);
 	return (line);
 }
-// int	main(void)
-// {
-// 	int	fd;
-
-// 	fd = open("test.txt", O_RDONLY);
-// 	printf("%s}", get_next_line(fd));
-// }
+#include <stdio.h>
+int main()
+{
+	int fd = open("file.txt", O_RDONLY);
+	printf("%s", get_next_line(fd));
+	// printf("%s", get_next_line(fd));
+	// printf("%s", get_next_line(fd));
+	// printf("%s", get_next_line(fd));
+}

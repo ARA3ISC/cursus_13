@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 10:52:27 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/24 00:48:35 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/17 09:55:22 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/17 09:55:24 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
-int	ft_isprint(int c)
-{
-	if (c >= 32 && c < 127)
-		return (1);
-	return (0);
-}
-/*#include <stdio.h>
-#include <ctype.h>
-int main()
-{
-	ft_printf("%d", isprint(5));
-	return 0;
-}
-*/
+# include <fcntl.h>
+# include <limits.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
+
+char	*get_next_line(int fd);
+char	*ft_strchr(char *str, char c);
+int		ft_strlen(char *str);
+char	*ft_strjoin(char *save_ln, char *buffer);
+
+#endif

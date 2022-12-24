@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   dimens.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 10:52:27 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/24 00:48:35 by maneddam         ###   ########.fr       */
+/*   Created: 2022/12/23 21:30:22 by maneddam          #+#    #+#             */
+/*   Updated: 2022/12/23 21:53:31 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-int	ft_isprint(int c)
+player get_dimens(char **table_2d)
 {
-	if (c >= 32 && c < 127)
-		return (1);
-	return (0);
+	int width;
+	int height;
+	int i;
+	player p;
+
+	i = 0;
+	while (table_2d[i])
+		i++;
+	width = ft_strlen(table_2d[0]);
+	height = i;
+
+	p.x = height;
+	p.y = width;
+
+	return (p);
 }
-/*#include <stdio.h>
-#include <ctype.h>
-int main()
-{
-	ft_printf("%d", isprint(5));
-	return 0;
-}
-*/

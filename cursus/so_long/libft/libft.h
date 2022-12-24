@@ -6,19 +6,19 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 10:54:22 by maneddam          #+#    #+#             */
-/*   Updated: 2022/10/31 01:47:21 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/23 05:23:44 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <fcntl.h>
 
 void				*ft_calloc(size_t nmemb, size_t size);
-size_t				ft_strlen(const char *s);
+int					ft_strlen(char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);

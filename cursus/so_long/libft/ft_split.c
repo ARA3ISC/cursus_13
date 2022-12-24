@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 18:07:05 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/22 04:26:09 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/23 01:49:45 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,3 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (fill_ptr(ptr, s, words_num, c));
 }
-

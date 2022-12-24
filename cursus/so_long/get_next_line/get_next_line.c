@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:55:39 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/22 04:25:42 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/23 01:50:11 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,3 @@ char	*get_next_line(int fd)
 	data = ft_get_chyata(data);
 	return (line);
 }
-

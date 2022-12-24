@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 15:40:17 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/14 21:41:51 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/17 09:55:33 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/17 09:55:36 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,13 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strchr(char *s, char find)
+char	*ft_strchr(char *s, char to_find)
 {
 	while (s && *s)
 	{
-		if (*s == find)
+		if (*s == to_find)
 			return (s);
 		s++;
-	}
-	return (NULL);
-}
-
-char	*free_zmmr(char **data, char **buff)
-{
-	if (data && *data)
-	{
-		free(*data);
-		*data = NULL;
-	}
-	if (buff && *buff)
-	{
-		free(*buff);
-		*buff = NULL;
 	}
 	return (NULL);
 }

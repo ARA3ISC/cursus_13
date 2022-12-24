@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 10:52:27 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/24 00:48:35 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/04 01:58:52 by maneddam          #+#    #+#             */
+/*   Updated: 2022/12/24 00:54:38 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isprint(int c)
+int	ft_putstr(char *s)
 {
-	if (c >= 32 && c < 127)
-		return (1);
-	return (0);
+	int	i;
+
+	i = 0;
+	if (s != NULL)
+	{
+		while (s[i])
+		{
+			write(1, &s[i], 1);
+			i++;
+		}
+	}
+	if (s == NULL)
+		i += ft_putstr("(null)");
+	return (i);
 }
-/*#include <stdio.h>
-#include <ctype.h>
-int main()
-{
-	ft_printf("%d", isprint(5));
-	return 0;
-}
-*/

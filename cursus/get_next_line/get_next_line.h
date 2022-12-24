@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 15:19:19 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/14 18:02:01 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/17 09:55:44 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/21 12:00:52 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 6
+#  define BUFFER_SIZE 8
 # endif
 
 # include <fcntl.h>
