@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 10:52:27 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/24 00:48:35 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:41:17 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	ft_isprint(int c)
 }
 /*#include <stdio.h>
 #include <ctype.h>
-int main()
+int	main(void)
 {
 	ft_printf("%d", isprint(5));
-	return 0;
+	return (0);
 }
 */

@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:42:57 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/23 20:55:29 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:07:17 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ void	wall_validity(char *full_map)
 void	check_items(char *full_map)
 {
 	int	i;
-	int	players;
+	int	t_players;
 	int	doors;
 	int	collect;
 
 	i = 0;
-	players = 0;
+	t_players = 0;
 	doors = 0;
 	collect = 0;
 	while (full_map[i])
@@ -81,13 +81,13 @@ void	check_items(char *full_map)
 		if (full_map[i] == 'E')
 			doors++;
 		else if (full_map[i] == 'P')
-			players++;
+			t_players++;
 		else if (full_map[i] == 'C')
 			collect++;
 		i++;
 	}
-	if (doors != 1 || players != 1)
-		print_error("Error\nIt must be just 1 door and 1 player !!");
+	if (doors != 1 || t_players != 1)
+		print_error("Error\nIt must be just 1 door and 1 t_player !!");
 	else if (collect == 0)
 		print_error("Error\nIt must be at least 1 collectible !!");
 }
@@ -96,7 +96,7 @@ void	form_validity(char *full_map)
 {
 	char	**table_2d;
 	int		i;
-	int	table_len;
+	int		table_len;
 
 	table_2d = ft_split(full_map, '\n');
 	table_len = ft_strlen(table_2d[0]);

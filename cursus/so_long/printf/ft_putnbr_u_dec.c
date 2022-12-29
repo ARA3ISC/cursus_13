@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 23:26:00 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/24 00:54:41 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:41:17 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putnbr_u_dec(unsigned int n, char *base)
 	int				i;
 	unsigned long	len;
 
-	len = ft_strlen(base);
+	len = ft_strlen_p(base);
 	i = 0;
 	if (n > 9)
 	{

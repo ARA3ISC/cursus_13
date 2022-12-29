@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:44:05 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/24 06:28:37 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:57:01 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,54 @@
 # include "./printf/ft_printf.h"
 
 # define ESC 53
+# define RIGHT 124
+# define LEFT 123
+# define UP 126
+# define DOWN 125
 
-
-void	print_error(char *msg);
-char	*read_map(void);
-void	wall_validity(char *full_map);
-void	check_items(char *full_map);
-void	form_validity(char *full_map);
-void	check_empty_lines(char *full_map);
-void	check_arg(int argc, char **argv);
-void	check_characters(char *full_map);
+void		print_error(char *msg);
+char		*read_map(void);
+void		wall_validity(char *full_map);
+void		check_items(char *full_map);
+void		form_validity(char *full_map);
+void		check_empty_lines(char *full_map);
+void		check_arg(int argc, char **argv);
+void		check_characters(char *full_map);
 
 typedef struct node
 {
-	int	x;
-	int	y;
-}		player;
+	int		x;
+	int		y;
+}			t_player;
 
-player	player_pos(char *full_map);
-int		check_path(char *fmap, player p);
-player	get_dimens(char **table_2d);
+t_player	player_pos(char **table_2d);
+int			check_collect_path(char **table_2d, int x, int y);
+int			check_exit_path(char **table_2d, int x, int y);
+t_player	get_dimens(char **table_2d);
+void		check_player_path(char **table_2d, char *fmap, t_player p);
+int			count_c(char **table_2d);
 
-
-typedef	struct s_mlx_data
+typedef struct s_mlx_data
 {
 	void	*mlx_ptr;
 	void	*wind_ptr;
 	void	*img_ptr;
-}		mlx_data;
+	char	**table_2d;
+}			t_mlx_data;
 
+typedef struct s_collected
+{
+	int		count;
+}			t_collected;
+
+int			move_up(t_mlx_data *m, int check);
+int			move_right(t_mlx_data *m, int check);
+int			move_down(t_mlx_data *m, int check);
+int			move_left(t_mlx_data *m, int check);
+void		display_map(char **table_2d, t_mlx_data *m);
+
+void		swap_img_up(t_mlx_data *m, int x, int y);
+void		swap_img_right(t_mlx_data *m, int x, int y);
+void		swap_img_down(t_mlx_data *m, int x, int y);
+void		swap_img_left(t_mlx_data *m, int x, int y);
 #endif

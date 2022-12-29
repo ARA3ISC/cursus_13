@@ -6,27 +6,25 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 21:30:22 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/23 21:53:31 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/28 21:12:28 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-player get_dimens(char **table_2d)
+t_player	get_dimens(char **table_2d)
 {
-	int width;
-	int height;
-	int i;
-	player p;
+	int			width;
+	int			height;
+	int			i;
+	t_player	p;
 
 	i = 0;
-	while (table_2d[i])
+	while (table_2d[i] != NULL)
 		i++;
 	width = ft_strlen(table_2d[0]);
 	height = i;
-
 	p.x = height;
 	p.y = width;
-
 	return (p);
 }

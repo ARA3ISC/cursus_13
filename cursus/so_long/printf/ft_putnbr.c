@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 00:53:49 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/24 00:54:20 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/29 15:41:17 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ int	ft_putnbr(long n, char *base)
 		write(1, "-", 1);
 		n = n * -1;
 	}
-	if (n >= (long)ft_strlen(base))
+	if (n >= (long)ft_strlen_p(base))
 	{
-		ft_putnbr(n / ft_strlen(base), base);
-		ft_putnbr(n % ft_strlen(base), base);
+		ft_putnbr(n / ft_strlen_p(base), base);
+		ft_putnbr(n % ft_strlen_p(base), base);
 	}
 	else
 	{

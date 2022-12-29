@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlen_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/28 21:12:03 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/29 17:00:58 by maneddam         ###   ########.fr       */
+/*   Created: 2022/10/06 14:27:56 by maneddam          #+#    #+#             */
+/*   Updated: 2022/12/29 15:41:17 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <fcntl.h>
-# include <stdlib.h>
-# include <unistd.h>
+int	ft_strlen_p(const char *s)
+{
+	int	i;
 
-int	ft_printf(const char *s, ...);
-int	ft_putchar(char c);
-int	ft_putstr(char *s);
-int	ft_putnbr(long n, char *base);
-int	ft_putnbr_add(unsigned long n, char *base);
-int	ft_putnbr_u_dec(unsigned int n, char *base);
-int	ft_strlen_p(const char *s);
-
-#endif
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}
