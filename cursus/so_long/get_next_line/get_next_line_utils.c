@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 09:55:33 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/23 01:48:55 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 01:49:34 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ char	*ft_strjoin_get(char *data, char *buff)
 	while (buff[j])
 		new_str[i++] = buff[j++];
 	new_str[i] = '\0';
+	free(data);
 	return (new_str);
 }

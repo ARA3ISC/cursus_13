@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 18:07:05 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/23 01:49:45 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 02:34:36 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static size_t	word_len(const char *s, char c)
 	return (len);
 }
 
-static void	ft_free(char **tab, size_t i)
+void	ft_free(char **tab, size_t i)
 {
 	while (i > 0)
 	{
@@ -63,7 +63,7 @@ static void	ft_free(char **tab, size_t i)
 	free(tab);
 }
 
-static char	**fill_ptr(char **ptr, char const *s, size_t words_num, char c)
+static char	**fill_ptr(char **ptr, char *s, size_t words_num, char c)
 {
 	size_t	i;
 	size_t	j;
@@ -92,7 +92,7 @@ static char	**fill_ptr(char **ptr, char const *s, size_t words_num, char c)
 	return (ptr);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**ptr;
 	size_t	words_num;

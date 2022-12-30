@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 21:30:22 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/28 21:12:28 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 02:18:04 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ t_player	get_dimens(char **table_2d)
 	height = i;
 	p.x = height;
 	p.y = width;
+
 	return (p);
 }

@@ -6,13 +6,13 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:36:52 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/29 15:58:33 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/29 23:06:55 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	move_up(t_mlx_data *m, int check)
+int	move_up(t_mlx_data *m, int check, int *c)
 {
 	int	x;
 	int	y;
@@ -34,12 +34,13 @@ int	move_up(t_mlx_data *m, int check)
 			m->table_2d[x - 1][y] = '0';
 		}
 		swap_img_up(m, x - 1, y);
+		ft_printf("%d\n", ++*c);
 		display_map(m->table_2d, m);
 	}
 	return (count);
 }
 
-int	move_right(t_mlx_data *m, int check)
+int	move_right(t_mlx_data *m, int check, int *c)
 {
 	int	x;
 	int	y;
@@ -61,12 +62,13 @@ int	move_right(t_mlx_data *m, int check)
 			m->table_2d[x][y + 1] = '0';
 		}
 		swap_img_right(m, x, y + 1);
+		ft_printf("%d\n", ++*c);
 		display_map(m->table_2d, m);
 	}
 	return (count);
 }
 
-int	move_down(t_mlx_data *m, int check)
+int	move_down(t_mlx_data *m, int check, int *c)
 {
 	int	x;
 	int	y;
@@ -88,12 +90,13 @@ int	move_down(t_mlx_data *m, int check)
 			m->table_2d[x + 1][y] = '0';
 		}
 		swap_img_down(m, x + 1, y);
+		ft_printf("%d\n", ++*c);
 		display_map(m->table_2d, m);
 	}
 	return (count);
 }
 
-int	move_left(t_mlx_data *m, int check)
+int	move_left(t_mlx_data *m, int check, int *c)
 {
 	int	x;
 	int	y;
@@ -115,6 +118,7 @@ int	move_left(t_mlx_data *m, int check)
 			m->table_2d[x][y - 1] = '0';
 		}
 		swap_img_left(m, x, y - 1);
+		ft_printf("%d\n", ++*c);
 		display_map(m->table_2d, m);
 	}
 	return (count);

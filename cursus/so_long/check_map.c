@@ -6,13 +6,13 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:42:57 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/28 21:07:17 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 02:38:53 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*read_map(void)
+char	*read_map()
 {
 	int		i;
 	int		check;
@@ -26,14 +26,15 @@ char	*read_map(void)
 	check = 0;
 	line = get_next_line(fd);
 	if (line == NULL)
-		print_error("Error\nmakayn ta line !!");
+		print_error("Error\nNo line error !!");
 	while (line != NULL)
 	{
 		full_map = ft_strjoin_get(full_map, line);
+		free(line);
 		line = get_next_line(fd);
 	}
-	if (full_map[0] == '\n')
-		print_error("Error\nNo line error !!");
+	// if (full_map[0] == '\n')
+	// 	print_error("Error\nEmpty line error !!");
 	return (full_map);
 }
 
@@ -63,6 +64,7 @@ void	wall_validity(char *full_map)
 			print_error("Error\nInvalid wall !!");
 		i++;
 	}
+	ft_free(table_2d, get_dimens(table_2d).x);
 }
 
 void	check_items(char *full_map)
@@ -107,6 +109,7 @@ void	form_validity(char *full_map)
 			print_error("Error\nInvalid wall form !!");
 		i++;
 	}
+	ft_free(table_2d, get_dimens(table_2d).x);
 }
 
 void	check_empty_lines(char *full_map)
