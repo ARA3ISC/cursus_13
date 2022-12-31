@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 01:06:00 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 02:39:29 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 22:40:54 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,34 @@ int	count_c(char **table_2d)
 		i++;
 	}
 	return (count);
+}
+
+int	count_c2(t_mlx_data *m)
+{
+	int		i;
+	int		j;
+	int		count;
+	char	**table_2d;
+	char	*save;
+
+	save = read_map(m->argv);
+	table_2d = ft_split(save, '\n');
+	count = 0;
+	i = 0;
+	j = 0;
+	while (table_2d[i])
+	{
+		j = 0;
+		while (table_2d[i][j])
+		{
+			if (table_2d[i][j] == 'C')
+				count++;
+			j++;
+		}
+		i++;
+	}
+	ft_free(table_2d, get_dimens(table_2d).x);
+	return (free(save), count);
 }
 
 int	check_collect_path(char **table_2d, int x, int y)

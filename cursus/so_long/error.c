@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:55:06 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 02:20:05 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 02:49:07 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ t_player	player_pos(char **table_2d)
 		}
 		i++;
 	}
-	// ft_free(table_2d, get_dimens(table_2d).x);
 	return (p);
 }
 
@@ -103,6 +102,5 @@ void	check_player_path(char **table_2d, char *fmap, t_player p)
 		print_error("Error\nInvalid path to collectible !!");
 	else if (got_door != 1)
 		print_error("Error\nInvalid path to the door !!");
-
 	ft_free(tab, get_dimens(tab).x);
 }

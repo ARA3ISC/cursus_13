@@ -6,13 +6,13 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:42:57 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 02:38:53 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 02:56:12 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	*read_map()
+char	*read_map(char *argv)
 {
 	int		i;
 	int		check;
@@ -21,7 +21,9 @@ char	*read_map()
 	int		fd;
 
 	full_map = ft_calloc(1, 1);
-	fd = open("map.ber", O_RDONLY);
+	fd = open(argv, O_RDONLY);
+	if (fd < 0)
+		print_error("Error\nFile not found !");
 	i = 0;
 	check = 0;
 	line = get_next_line(fd);
@@ -33,8 +35,8 @@ char	*read_map()
 		free(line);
 		line = get_next_line(fd);
 	}
-	// if (full_map[0] == '\n')
-	// 	print_error("Error\nEmpty line error !!");
+	if (full_map[0] == '\n')
+		print_error("Error\nEmpty line error !!");
 	return (full_map);
 }
 

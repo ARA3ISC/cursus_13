@@ -22,7 +22,7 @@ void	checking(int argc, char **argv)
 	t_player	p;
 	char		**table_2d;
 
-	fmap = read_map();
+	fmap = read_map(argv[1]);
 	table_2d = ft_split(fmap, '\n');
 	p = player_pos(table_2d);
 	check_arg(argc, argv);
@@ -32,7 +32,6 @@ void	checking(int argc, char **argv)
 	check_empty_lines(fmap);
 	check_characters(fmap);
 	check_player_path(table_2d, fmap, p);
-
 	ft_free(table_2d, get_dimens(table_2d).x);
 	free(fmap);
 }
@@ -85,15 +84,15 @@ int	exec(int keycode, t_mlx_data *m)
 		mlx_destroy_window(m->mlx_ptr, m->wind_ptr);
 		exit(0);
 	}
-	if (count == count_c(ft_split(read_map(), '\n')))
+	if (count == count_c2(m))
 		check = 1;
-	if (keycode == UP)
+	if (keycode == UP || keycode == 13)
 		count += move_up(m, check, &c);
-	if (keycode == RIGHT)
+	if (keycode == RIGHT || keycode == 2)
 		count += move_right(m, check, &c);
-	if (keycode == DOWN)
+	if (keycode == DOWN || keycode == 1)
 		count += move_down(m, check, &c);
-	if (keycode == LEFT)
+	if (keycode == LEFT || keycode == 0)
 		count += move_left(m, check, &c);
 	return (count);
 }
@@ -103,10 +102,11 @@ int	main(int argc, char **argv)
 	t_mlx_data	m;
 	t_player	p;
 	t_collected	c;
-	char *fmap;
+	char		*fmap;
 
 	c.move = 0;
-	fmap = read_map();
+	m.argv = argv[1];
+	fmap = read_map(argv[1]);
 	m.table_2d = ft_split(fmap, '\n');
 	p = get_dimens(m.table_2d);
 	checking(argc, argv);
@@ -116,9 +116,7 @@ int	main(int argc, char **argv)
 	mlx_hook(m.wind_ptr, 2, 0, exec, &m);
 	mlx_hook(m.wind_ptr, 17, 0, closed, &m);
 	mlx_loop(m.mlx_ptr);
-
 	free(fmap);
 	ft_free(m.table_2d, get_dimens(m.table_2d).x);
-
 	return (0);
 }

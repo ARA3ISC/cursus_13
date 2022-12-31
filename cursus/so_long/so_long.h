@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:44:05 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/29 23:49:14 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 22:34:43 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define DOWN 125
 
 void		print_error(char *msg);
-char		*read_map();
+char		*read_map(char *argv);
 void		wall_validity(char *full_map);
 void		check_items(char *full_map);
 void		form_validity(char *full_map);
@@ -52,7 +52,10 @@ typedef struct s_mlx_data
 	void	*wind_ptr;
 	void	*img_ptr;
 	char	**table_2d;
+	char	*argv;
 }			t_mlx_data;
+
+int			count_c2(t_mlx_data *m);
 
 typedef struct s_collected
 {

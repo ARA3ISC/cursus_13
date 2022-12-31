@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:36:52 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/29 23:06:55 by maneddam         ###   ########.fr       */
+/*   Updated: 2022/12/30 03:15:47 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	move_up(t_mlx_data *m, int check, int *c)
 	y = player_pos(m->table_2d).y;
 	if (m->table_2d[x - 1][y] == 'E' && check == 1)
 	{
+		ft_printf("%d\n", ++*c);
 		ft_printf("You won !!");
 		exit(0);
 	}
@@ -51,6 +52,7 @@ int	move_right(t_mlx_data *m, int check, int *c)
 	y = player_pos(m->table_2d).y;
 	if (m->table_2d[x][y + 1] == 'E' && check == 1)
 	{
+		ft_printf("%d\n", ++*c);
 		ft_printf("You won !!");
 		exit(0);
 	}
@@ -79,6 +81,7 @@ int	move_down(t_mlx_data *m, int check, int *c)
 	y = player_pos(m->table_2d).y;
 	if (m->table_2d[x + 1][y] == 'E' && check == 1)
 	{
+		ft_printf("%d\n", ++*c);
 		ft_printf("You won !!");
 		exit(0);
 	}
@@ -107,6 +110,7 @@ int	move_left(t_mlx_data *m, int check, int *c)
 	y = player_pos(m->table_2d).y;
 	if (m->table_2d[x][y - 1] == 'E' && check == 1)
 	{
+		ft_printf("%d\n", ++*c);
 		ft_printf("You won !!");
 		exit(0);
 	}
