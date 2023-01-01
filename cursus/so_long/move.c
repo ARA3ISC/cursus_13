@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 15:36:52 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 03:15:47 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/01 11:13:25 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	move_up(t_mlx_data *m, int check, int *c)
 		}
 		swap_img_up(m, x - 1, y);
 		ft_printf("%d\n", ++*c);
-		display_map(m->table_2d, m);
+		display_ground(m, x, y);
+		display_other_items(m, "./res/lhero.xpm", x - 1, y);
 	}
 	return (count);
 }
@@ -65,7 +66,8 @@ int	move_right(t_mlx_data *m, int check, int *c)
 		}
 		swap_img_right(m, x, y + 1);
 		ft_printf("%d\n", ++*c);
-		display_map(m->table_2d, m);
+		display_ground(m, x, y);
+		display_other_items(m, "./res/lhero.xpm", x, y + 1);
 	}
 	return (count);
 }
@@ -94,7 +96,8 @@ int	move_down(t_mlx_data *m, int check, int *c)
 		}
 		swap_img_down(m, x + 1, y);
 		ft_printf("%d\n", ++*c);
-		display_map(m->table_2d, m);
+		display_ground(m, x, y);
+		display_other_items(m, "./res/lhero.xpm", x + 1, y);
 	}
 	return (count);
 }
@@ -123,7 +126,8 @@ int	move_left(t_mlx_data *m, int check, int *c)
 		}
 		swap_img_left(m, x, y - 1);
 		ft_printf("%d\n", ++*c);
-		display_map(m->table_2d, m);
+		display_ground(m, x, y);
+		display_other_items(m, "./res/lhero.xpm", x , y - 1);
 	}
 	return (count);
 }
