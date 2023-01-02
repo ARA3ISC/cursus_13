@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 01:06:00 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 22:40:54 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 01:39:44 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	check_collect_path(char **table_2d, int x, int y)
 	j = y;
 	if (i > get_dimens(table_2d).x || j > get_dimens(table_2d).y)
 		return (count);
-	if (table_2d[i][j] == '1' || table_2d[i][j] == 'x' || table_2d[i][j] == 'E')
+	if (table_2d[i][j] == '1' || table_2d[i][j] == 'x' || table_2d[i][j] == 'E' || table_2d[i][j] == 'I')
 		return (count);
 	if (table_2d[i][j] == '0' || table_2d[i][j] == 'C' || table_2d[i][j] == 'P')
 	{
@@ -100,7 +100,7 @@ int	check_exit_path(char **table_2d, int x, int y)
 	j = y;
 	if (i > get_dimens(table_2d).x || j > get_dimens(table_2d).y)
 		return (count);
-	if (table_2d[i][j] == '1' || table_2d[i][j] == 'x')
+	if (table_2d[i][j] == '1' || table_2d[i][j] == 'x' || table_2d[i][j] == 'I')
 		return (count);
 	if (table_2d[i][j] == '0' || table_2d[i][j] == 'C' || table_2d[i][j] == 'P'
 		|| table_2d[i][j] == 'E')

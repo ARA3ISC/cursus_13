@@ -6,17 +6,17 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:30:34 by maneddam          #+#    #+#             */
-/*   Updated: 2022/11/01 15:37:46 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 03:09:07 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new_str;
-	size_t	i;
-	size_t	j;
+	int	i;
+	int	j;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);

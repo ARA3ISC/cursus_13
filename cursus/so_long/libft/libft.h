@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 10:54:22 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 02:30:30 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 03:08:45 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char				*ft_strrchr(const char *s, int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
-char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strjoin(char *s1, char *s2);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_itoa(int n);
 char				**ft_split(char *s, char c);

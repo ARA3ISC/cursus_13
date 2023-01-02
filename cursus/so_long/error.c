@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:55:06 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 02:49:07 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 01:28:51 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ void	check_characters(char *full_map)
 	while (full_map[i])
 	{
 		if (full_map[i] != '1' && full_map[i] != '0' && full_map[i] != 'E'
-			&& full_map[i] != 'P' && full_map[i] != 'C' && full_map[i] != '\n')
+			&& full_map[i] != 'P' && full_map[i] != 'C' && full_map[i] != '\n'
+			&& full_map[i] != 'I')
 			print_error("Error \nInvalid character !!");
 		i++;
 	}

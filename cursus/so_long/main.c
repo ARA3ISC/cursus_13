@@ -57,6 +57,8 @@ void	display_map(char **table_2d, t_mlx_data *m)
 				display_other_items(m, "./res/lcollectible.xpm", i, j);
 			else if (table_2d[i][j] == 'E')
 				display_other_items(m, "./res/lbab.xpm", i, j);
+			else if (table_2d[i][j] == 'I')
+				display_other_items(m, "./res/enemy/nebta0.xpm", i, j);
 			j++;
 		}
 		i++;
@@ -97,6 +99,44 @@ int	exec(int keycode, t_mlx_data *m)
 	return (count);
 }
 
+void	rotate_img(t_mlx_data *m)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (m->table_2d[i])
+	{
+		j = 0;
+		while (m->table_2d[i][j])
+		{
+			if (m->table_2d[i][j] == 'C')
+				display_coins(m, i, j);
+			else if (m->table_2d[i][j] == 'I')
+				display_enemy(m, i, j);
+			j++;
+		}
+		i++;
+	}
+}
+
+int	animate(t_mlx_data *m)
+{
+	if (m->timer > 1000)
+	{
+		m->timer = 0;
+		rotate_img(m);
+		m->index++;
+		m->index_en++;
+	}
+	if (m->index == 5)
+		m->index = 0;
+	if (m->index_en == 18)
+		m->index_en = 0;
+	m->timer++;
+	return (0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_mlx_data	m;
@@ -105,6 +145,9 @@ int	main(int argc, char **argv)
 	char		*fmap;
 
 	c.move = 0;
+	m.timer = 0;
+	m.index = 0;
+	m.index_en = 0;
 	m.argv = argv[1];
 	fmap = read_map(argv[1]);
 	m.table_2d = ft_split(fmap, '\n');
@@ -115,6 +158,7 @@ int	main(int argc, char **argv)
 	display_map(m.table_2d, &m);
 	mlx_hook(m.wind_ptr, 2, 0, exec, &m);
 	mlx_hook(m.wind_ptr, 17, 0, closed, &m);
+	mlx_loop_hook(m.mlx_ptr, animate, &m);
 	mlx_loop(m.mlx_ptr);
 	free(fmap);
 	ft_free(m.table_2d, get_dimens(m.table_2d).x);

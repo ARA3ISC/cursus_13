@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:44:05 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 22:34:43 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 02:45:50 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,13 @@ typedef struct s_mlx_data
 	void	*mlx_ptr;
 	void	*wind_ptr;
 	void	*img_ptr;
+	void	*coin_ptr[6];
+	void	*enemy_ptr[19];
 	char	**table_2d;
 	char	*argv;
+	int		timer;
+	int		index;
+	int		index_en;
 }			t_mlx_data;
 
 int			count_c2(t_mlx_data *m);
@@ -61,6 +66,8 @@ typedef struct s_collected
 {
 	int		count;
 	int		move;
+	int		x_c;
+	int		y_c;
 }			t_collected;
 
 int			move_up(t_mlx_data *m, int check, int *move);
@@ -77,4 +84,6 @@ void		swap_img_left(t_mlx_data *m, int x, int y);
 void		display_ground(t_mlx_data *m, int i, int j);
 void		display_wall(t_mlx_data *m, int i, int j);
 void		display_other_items(t_mlx_data *m, char *item, int i, int j);
+void		display_coins(t_mlx_data *m, int i, int j);
+void		display_enemy(t_mlx_data *m, int i, int j);
 #endif
