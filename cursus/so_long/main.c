@@ -36,35 +36,6 @@ void	checking(int argc, char **argv)
 	free(fmap);
 }
 
-void	display_map(char **table_2d, t_mlx_data *m)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (table_2d[i])
-	{
-		j = 0;
-		while (table_2d[i][j])
-		{
-			if (table_2d[i][j] == '1')
-				display_wall(m, i, j);
-			else if (table_2d[i][j] == '0')
-				display_ground(m, i, j);
-			else if (table_2d[i][j] == 'P')
-				display_other_items(m, "./res/lhero.xpm", i, j);
-			else if (table_2d[i][j] == 'C')
-				display_other_items(m, "./res/lcollectible.xpm", i, j);
-			else if (table_2d[i][j] == 'E')
-				display_other_items(m, "./res/lbab.xpm", i, j);
-			else if (table_2d[i][j] == 'I')
-				display_other_items(m, "./res/enemy/nebta0.xpm", i, j);
-			j++;
-		}
-		i++;
-	}
-}
-
 int	closed(t_mlx_data *m)
 {
 	ft_printf("You closed the game !");
@@ -97,27 +68,6 @@ int	exec(int keycode, t_mlx_data *m)
 	if (keycode == LEFT || keycode == 0)
 		count += move_left(m, check, &c);
 	return (count);
-}
-
-void	rotate_img(t_mlx_data *m)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (m->table_2d[i])
-	{
-		j = 0;
-		while (m->table_2d[i][j])
-		{
-			if (m->table_2d[i][j] == 'C')
-				display_coins(m, i, j);
-			else if (m->table_2d[i][j] == 'I')
-				display_enemy(m, i, j);
-			j++;
-		}
-		i++;
-	}
 }
 
 int	animate(t_mlx_data *m)

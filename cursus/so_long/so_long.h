@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:44:05 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/02 05:05:27 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 07:31:13 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,11 @@ void		display_wall(t_mlx_data *m, int i, int j);
 void		display_other_items(t_mlx_data *m, char *item, int i, int j);
 void		display_coins(t_mlx_data *m, int i, int j);
 void		display_enemy(t_mlx_data *m, int i, int j);
+void		rotate_img(t_mlx_data *m);
+void		display_map(char **table_2d, t_mlx_data *m);
+int			move_on_up(t_mlx_data *m, int *c, int x, int y);
+int			move_on_right(t_mlx_data *m, int *c, int x, int y);
+int			move_on_down(t_mlx_data *m, int *c, int x, int y);
+int			move_on_left(t_mlx_data *m, int *c, int x, int y);
+
 #endif

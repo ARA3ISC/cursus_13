@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:30:34 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/02 03:09:07 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 05:42:44 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new_str;
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
