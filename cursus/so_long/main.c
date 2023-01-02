@@ -122,14 +122,14 @@ void	rotate_img(t_mlx_data *m)
 
 int	animate(t_mlx_data *m)
 {
-	if (m->timer > 1000)
+	if (m->timer > 800)
 	{
 		m->timer = 0;
 		rotate_img(m);
 		m->index++;
 		m->index_en++;
 	}
-	if (m->index == 5)
+	if (m->index == 7)
 		m->index = 0;
 	if (m->index_en == 18)
 		m->index_en = 0;

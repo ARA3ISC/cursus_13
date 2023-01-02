@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 21:14:14 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/02 02:08:12 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 05:17:56 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,39 @@ void	display_wall(t_mlx_data *m, int i, int j)
 			* i);
 }
 
+void	fill_coin_ptr(t_mlx_data *m, int *width, int *height, int k)
+{
+	char *k_str;
+	char *extension;
+	char *path;
+	char *r;
+	char *item;
+
+	extension = ".xpm";
+	path = "./res/coins/coin";
+
+	while (k < 8)
+	{
+		k_str = ft_itoa(k);
+		r = ft_strjoin(path, k_str);
+		item = ft_strjoin(r, extension);
+		m->coin_ptr[k] = mlx_xpm_file_to_image(m->mlx_ptr, item, width, height);
+		free(r);
+		free(item);
+		free(k_str);
+		k++;
+	}
+}
+
 void	display_coins(t_mlx_data *m, int i, int j)
 {
 	int	width;
 	int	height;
+	int k;
 
+	k = 0;
 	display_ground(m, i, j);
-	m->coin_ptr[0] = mlx_xpm_file_to_image(m->mlx_ptr,
-											"./res/coin1.xpm",
-											&width,
-											&height);
-	m->coin_ptr[1] = mlx_xpm_file_to_image(m->mlx_ptr,
-											"./res/coin2.xpm",
-											&width,
-											&height);
-	m->coin_ptr[2] = mlx_xpm_file_to_image(m->mlx_ptr,
-											"./res/coin3.xpm",
-											&width,
-											&height);
-	m->coin_ptr[3] = mlx_xpm_file_to_image(m->mlx_ptr,
-											"./res/coin4.xpm",
-											&width,
-											&height);
-	m->coin_ptr[4] = mlx_xpm_file_to_image(m->mlx_ptr,
-											"./res/coin5.xpm",
-											&width,
-											&height);
-	m->coin_ptr[5] = mlx_xpm_file_to_image(m->mlx_ptr,
-											"./res/coin6.xpm",
-											&width,
-											&height);
+	fill_coin_ptr(m, &width, &height, k);
 	mlx_put_image_to_window(m->mlx_ptr, m->wind_ptr, m->coin_ptr[m->index], 60
 			* j, 60 * i);
 	if (!m->coin_ptr[m->index])

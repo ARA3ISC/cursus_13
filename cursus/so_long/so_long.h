@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:44:05 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/02 02:45:50 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 05:05:27 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_mlx_data
 	void	*mlx_ptr;
 	void	*wind_ptr;
 	void	*img_ptr;
-	void	*coin_ptr[6];
+	void	*coin_ptr[8];
 	void	*enemy_ptr[19];
 	char	**table_2d;
 	char	*argv;
