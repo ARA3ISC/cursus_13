@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 00:42:57 by maneddam          #+#    #+#             */
-/*   Updated: 2022/12/30 02:56:12 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/02 23:03:27 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ char	*read_map(char *argv)
 	char	*full_map;
 	int		fd;
 
+	(void)argv;
 	full_map = ft_calloc(1, 1);
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)

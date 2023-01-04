@@ -103,14 +103,17 @@ int	main(int argc, char **argv)
 	m.table_2d = ft_split(fmap, '\n');
 	p = get_dimens(m.table_2d);
 	checking(argc, argv);
+
 	m.mlx_ptr = mlx_init();
 	m.wind_ptr = mlx_new_window(m.mlx_ptr, 60 * p.y, 60 * p.x, "game 2D");
 	display_map(m.table_2d, &m);
+
 	mlx_hook(m.wind_ptr, 2, 0, exec, &m);
 	mlx_hook(m.wind_ptr, 17, 0, closed, &m);
 	mlx_loop_hook(m.mlx_ptr, animate, &m);
 	mlx_loop(m.mlx_ptr);
 	free(fmap);
 	ft_free(m.table_2d, get_dimens(m.table_2d).x);
+
 	return (0);
 }

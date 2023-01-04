@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 18:53:09 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/04 22:38:42 by maneddam         ###   ########.fr       */
+/*   Created: 2023/01/04 18:22:32 by maneddam          #+#    #+#             */
+/*   Updated: 2023/01/04 18:32:23 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	print_error(char *msg)
 {
-	t_list	*ptr;
-
-	ptr = malloc(sizeof(t_list));
-	if (!ptr)
-		return (NULL);
-	ptr->content = content;
-	ptr->next = NULL;
-	return (ptr);
+	printf("Error :\n%s !!", msg);
+	exit(1);
 }

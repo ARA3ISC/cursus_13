@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 18:53:09 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/04 22:38:42 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/04 01:58:52 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/05 00:46:43 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_putstr(char *s)
 {
-	t_list	*ptr;
+	int	i;
 
-	ptr = malloc(sizeof(t_list));
-	if (!ptr)
-		return (NULL);
-	ptr->content = content;
-	ptr->next = NULL;
-	return (ptr);
+	i = 0;
+	if (s != NULL)
+	{
+		while (s[i])
+		{
+			write(1, &s[i], 1);
+			i++;
+		}
+	}
+	if (s == NULL)
+		i += ft_putstr("(null)");
+	return (i);
 }

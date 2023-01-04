@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -12,7 +13,7 @@
 
 #include "libft.h"
 
-static size_t	count_words(const char *str, char c)
+static size_t	count_words(char *str, char c)
 {
 	size_t	i;
 	size_t	count;
@@ -92,7 +93,7 @@ static char	**fill_ptr(char **ptr, char const *s, size_t words_num, char c)
 	return (ptr);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	**ptr;
 	size_t	words_num;
@@ -109,8 +110,4 @@ char	**ft_split(char const *s, char c)
 	if (!ptr)
 		return (NULL);
 	return (fill_ptr(ptr, s, words_num, c));
-}
-int main()
-{
-	char
 }

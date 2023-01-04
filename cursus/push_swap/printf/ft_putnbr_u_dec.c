@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_u_dec.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 18:53:09 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/04 22:38:42 by maneddam         ###   ########.fr       */
+/*   Created: 2022/11/03 23:26:00 by maneddam          #+#    #+#             */
+/*   Updated: 2022/11/05 00:47:59 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_putnbr_u_dec(unsigned int n, char *base)
 {
-	t_list	*ptr;
+	int				i;
+	unsigned long	len;
 
-	ptr = malloc(sizeof(t_list));
-	if (!ptr)
-		return (NULL);
-	ptr->content = content;
-	ptr->next = NULL;
-	return (ptr);
+	len = ft_strlen(base);
+	i = 0;
+	if (n > 9)
+	{
+		i += ft_putnbr_u_dec(n / len, base);
+		i += ft_putnbr_u_dec(n % len, base);
+	}
+	else
+	{
+		i += ft_putchar((base[n]));
+	}
+	return (i);
 }

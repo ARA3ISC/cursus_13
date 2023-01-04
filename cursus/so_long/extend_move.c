@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 06:19:56 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/02 07:35:26 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/03 16:43:22 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int	move_on_up(t_mlx_data *m, int *c, int x, int y)
 	mlx_string_put(m->mlx_ptr, m->wind_ptr, get_dimens(m->table_2d).y * 60 / 2,
 		25, 0xfffffff, itoa_str);
 	display_ground(m, x + 1, y);
-	display_other_items(m, "./res/lhero.xpm", x, y);
+	display_other_items(m, "./textures/lhero.xpm", x, y);
+	// printf("hahahah\n");
+	// exit(0);
 	free(itoa_str);
 	return (count);
 }
@@ -57,7 +59,7 @@ int	move_on_right(t_mlx_data *m, int *c, int x, int y)
 	mlx_string_put(m->mlx_ptr, m->wind_ptr, get_dimens(m->table_2d).y * 60 / 2,
 		25, 0xfffffff, itoa_str);
 	display_ground(m, x, y - 1);
-	display_other_items(m, "./res/lhero.xpm", x, y);
+	display_other_items(m, "./textures/lhero.xpm", x, y);
 	free(itoa_str);
 	return (count);
 }
@@ -82,7 +84,7 @@ int	move_on_down(t_mlx_data *m, int *c, int x, int y)
 	mlx_string_put(m->mlx_ptr, m->wind_ptr, get_dimens(m->table_2d).y * 60 / 2,
 		25, 0xfffffff, itoa_str);
 	display_ground(m, x - 1, y);
-	display_other_items(m, "./res/lhero.xpm", x, y);
+	display_other_items(m, "./textures/lhero.xpm", x, y);
 	free(itoa_str);
 	return (count);
 }
@@ -107,7 +109,7 @@ int	move_on_left(t_mlx_data *m, int *c, int x, int y)
 	mlx_string_put(m->mlx_ptr, m->wind_ptr, get_dimens(m->table_2d).y * 60 / 2,
 		25, 0xfffffff, itoa_str);
 	display_ground(m, x, y + 1);
-	display_other_items(m, "./res/lhero.xpm", x, y);
+	display_other_items(m, "./textures/lhero.xpm", x, y);
 	free(itoa_str);
 	return (count);
 }
