@@ -6,7 +6,7 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:01:31 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/04 22:15:31 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:06:18 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,37 @@
 // 	return (-1);
 // }
 
-long	ft_atoi(const char *str)
+int	is_digit(char c)
 {
-	int		i;
-	long	result;
-	int		sign;
+	return (c >= '0' && c <= '9');
+}
 
-	sign = 1;
-	result = 0;
+long int	ft_atoi(const char *str)
+{
+	long int	nb;
+	int			isneg;
+	int			i;
+
+	nb = 0;
+	isneg = 1;
 	i = 0;
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	if (str[i] == '+')
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	else if (str[i] == '-')
 	{
-		if (str[i + 1] == '-' || str[i + 1] == '+')
-			return (0);
-		if (str[i] == '-')
-			sign *= -1;
+		isneg *= -1;
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (is_digit(str[i]))
 	{
-		result = result * 10 + str[i] - 48;
+		if ((nb * 10 + str[i] - 48 < nb) && (isneg == 1))
+			print_error("invalid num");
+		if ((nb * 10 + str[i] - 48 + 1 < nb) && (isneg == -1))
+			print_error("invalid num");
+		nb = nb * 10 + str[i] - 48;
 		i++;
 	}
-	return (result * sign);
+
+	// printf("   %ld   ", nb);
+	return (nb * isneg);
 }

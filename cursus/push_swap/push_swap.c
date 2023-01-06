@@ -6,70 +6,79 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 17:53:46 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/04 22:56:07 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:06:52 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_arg(int argc, char *argv[])
+char	*join_args(int argc, char **argv)
 {
-	int	i;
-	int j;
-
-	i = 1;
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= '0' && argv[i][j] <= '9') && argv[i][j] != 32 && argv[i][j] != '-')
-				print_error("Invalid argument format");
-			j++;
-		}
-		i++;
-	}
-}
-
-
-void	fill_stack(int argc, char **argv)
-{
-	t_node	*p;
 	int		i;
-	int 	j;
-	char	**tab_2d;
-	int	nb;
+	char	*line;
 
 	i = 1;
-	nb = 0;
-	p = mylst_new(nb);
+	line = NULL;
 	while (i < argc)
 	{
-		j = 0;
-		tab_2d = ft_split(argv[i], ' ');
-		while (tab_2d[j])
-		{
-			nb = ft_atoi(tab_2d[j]);
-			if (nb > INT_MAX || nb < INT_MIN)
-				print_error("Invalid number range");
-			printf("hhhh\n");
-			mylstadd_back(&p, p);
-			p->next = NULL;
-			p = p->next;
-			j++;
-		}
-		//p = p->next;
-		ft_free(tab_2d);
+		if (!argv[i][0])
+			print_error("Invalid num");
+		line = ft_strjoin(line, " ");
+		line = ft_strjoin(line, argv[i]);
 		i++;
 	}
+	return line;
 }
+
+t_node	*fill_stack(char *one_arg)
+{
+	t_node	*stack_a;
+	long		nb;
+	char	**tab2d;
+	int		i;
+
+	i = 0;
+
+	tab2d = ft_split(one_arg, ' ');
+	while (tab2d[i])
+	{
+		nb = ft_atoi(tab2d[i]);
+		// printf("this is nb:%ld\n", nb);
+		if (nb > INT_MAX || nb < INT_MIN)
+			print_error("Invalid num");
+		if (i == 0)
+			stack_a = mylst_new(nb);
+		else
+			mylstadd_back(&stack_a, mylst_new(nb));
+		i++;
+	}
+	ft_free(tab2d);
+	return stack_a;
+}
+
 
 int main(int argc, char *argv[])
 {
-	if (argc >= 2)
+	t_node	*stack_a;
+	char	**tab2d;
+	char	*one_arg;
+	if (argc > 2)
 	{
-		// ft_printf("haha\n");
-		check_arg(argc, argv);
-		fill_stack(argc, argv);
+
+		one_arg = join_args(argc, argv);
+		tab2d = ft_split(one_arg, ' ');
+
+		check_arg(one_arg, tab2d);
+		stack_a = fill_stack(one_arg);
+
+
+		while (stack_a != NULL)
+		{
+			printf("%d\n", stack_a->content);
+			stack_a = stack_a->next;
+		}
+		free(one_arg);
+		ft_free(tab2d);
 	}
+	// system("leaks push_swap");
 }
