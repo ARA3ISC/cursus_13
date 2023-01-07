@@ -6,11 +6,11 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 19:27:10 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/05 08:38:17 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/07 20:45:14 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	ft_free(char **tab_2d)
 {
@@ -36,6 +36,7 @@ t_node	*mylst_new(int content)
 	ptr->next = NULL;
 	return (ptr);
 }
+
 t_node	*mylst_last(t_node *lst)
 {
 	if (!lst)
@@ -53,4 +54,10 @@ void	mylstadd_back(t_node **lst, t_node *new)
 	{
 		mylst_last(*lst)->next = new;
 	}
+}
+
+void	mylstadd_front(t_node **lst, t_node *new)
+{
+	new->next = *lst;
+	*lst = new;
 }

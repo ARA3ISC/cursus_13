@@ -6,19 +6,12 @@
 /*   By: maneddam <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 20:01:31 by maneddam          #+#    #+#             */
-/*   Updated: 2023/01/06 16:06:18 by maneddam         ###   ########.fr       */
+/*   Updated: 2023/01/07 13:26:31 by maneddam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "../push_swap.h"
-
-// static int	check_of(int sign)
-// {
-// 	if (sign == -1)
-// 		exit(1);
-// 	return (-1);
-// }
 
 int	is_digit(char c)
 {
@@ -34,6 +27,9 @@ long int	ft_atoi(const char *str)
 	nb = 0;
 	isneg = 1;
 	i = 0;
+	if (((str[i] == '+' || str[i] == '-') && (str[i + 1] == '+'
+				|| str[i + 1] == '-' || str[i + 1] == '\0')))
+		print_error("Error");
 	if (str[i] == '+')
 		i++;
 	else if (str[i] == '-')
@@ -44,13 +40,13 @@ long int	ft_atoi(const char *str)
 	while (is_digit(str[i]))
 	{
 		if ((nb * 10 + str[i] - 48 < nb) && (isneg == 1))
-			print_error("invalid num");
+			print_error("error");
 		if ((nb * 10 + str[i] - 48 + 1 < nb) && (isneg == -1))
-			print_error("invalid num");
+			print_error("error");
 		nb = nb * 10 + str[i] - 48;
 		i++;
 	}
-
-	// printf("   %ld   ", nb);
+	if (!(str[i] >= '0' && str[i] <= '9') && str[i])
+		print_error("Error");
 	return (nb * isneg);
 }
